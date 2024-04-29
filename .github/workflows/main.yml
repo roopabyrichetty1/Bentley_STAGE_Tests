@@ -1,0 +1,37 @@
+name: BrowserStack Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Run BrowserStack Tests
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        browserStackVersion: [latest]  # You can specify specific BrowserStack versions here if needed
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Specify your desired Node.js version
+
+      - name: Install dependencies
+        run: npm install  # Use yarn if you prefer yarn
+
+      - name: Run BrowserStack tests
+        env:
+          BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+          BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+        run: |
+          npm run sample-test # Adjust the command to run your BrowserStack tests
