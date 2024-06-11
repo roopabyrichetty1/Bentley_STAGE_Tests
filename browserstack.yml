@@ -3,7 +3,7 @@ userName: carlastata_TQdEoa
 accessKey: UrxkhvgxBstWxuvpSVcs
 projectName: Bentley.com Automated Tests
 buildName: BuildTest
-buildIdentifier: 'Bentley PROD Tests' # Supports strings along with either/both ${expression}
+buildIdentifier: 'Bentley STAGE Tests' # Supports strings along with either/both ${expression}
 source: jest-js:sample-main:v1.0
 # =======================================
 # Platforms (Browsers / Devices to test)
